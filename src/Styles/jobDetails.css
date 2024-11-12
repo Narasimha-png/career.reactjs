@@ -1,0 +1,73 @@
+.job-full-details {
+    display: flex;
+    padding: 2vw 5vw;
+    justify-content: space-between;
+    height: 87vh;
+    overflow: hidden;
+}
+
+.job-information{
+    width: 47vw;
+    padding: 10px;
+    overflow: scroll;
+}
+.job-details{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.status-tag{
+    padding: 5px;
+    border-radius: 4px;
+    width: 150px;
+    text-align: center;
+}
+
+.active{ 
+    background-color:#4CFDCB ;
+}
+.expired{
+    background-color: rgb(240, 85, 85);
+}
+.job-text{
+    font-size: 17px;
+    
+}
+.job-apply-btn{
+    padding: 2vh 3vw ;
+    
+    background-color: #4CFDCB;
+}
+.information-div{
+    display: none;
+}
+@media (max-height:650px) or (max-width:1150px) {
+    .job-full-details{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        height: inherit;
+    }
+    .job-details{
+        width: inherit;
+    }
+    .job-information{
+        width: inherit;
+    }
+    .job-text{
+        font-size: 16px;
+    }
+    .details-div{
+        display: none;
+
+    }
+    .information-div{
+        display: revert;
+    }
+    .job-information{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

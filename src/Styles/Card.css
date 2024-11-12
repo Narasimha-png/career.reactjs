@@ -1,0 +1,224 @@
+.skill{
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 3px;
+}
+.skillset{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.more-skills{
+    color: #4CFDCB ;
+}
+.imp-text{
+    color: #4CFDCB;
+}
+.skilllogoimg{
+    width: 200px;
+    height: 180px;
+}
+.opening{
+    
+    margin: 10px ;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid lightgray;
+}
+.opening:hover{
+    border: 1.5px solid #4CFDCB;
+}
+.link-tag{
+    text-decoration: none;
+    color: inherit;
+}
+.link-tag:hover{
+   
+        text-decoration: none;
+        color: inherit;
+    
+}
+.applybtn{
+    border: none;
+    background-color: #4CFDCB;
+    padding: 10px 2rem ;
+}
+.share-apply{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+.OpeningLayout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.openinginfo{
+    border-bottom: 1px solid lightgrey;
+}
+.preloader-div{
+    width: 95vw;
+    height: 95vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.share-opening , .subscribe-bell{
+    width: 30px;
+    height: 30px;
+}
+.heading-text{
+    animation: backgroundtrans 1s 1;
+    padding: 4rem;
+    text-align: center;
+}
+.search-space-div{  
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.serach-Text{
+    padding: 10px;
+    width: 60vw;
+}
+.search-btn{
+    padding: 10px 3rem;
+    background-color: #4CFDCB;
+}
+.search-heading{
+   padding: 1rem;
+}
+
+.subscribe_div{
+    margin-top: 3rem;
+}
+.shimmer{
+    background-color: lightgray;
+}
+.shimmer-img{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.shimmer-heading, .shimmer-number{
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+}
+.shimmer-opening{
+    height: 350px;
+}
+.shimmer-div{
+    height: 90vh;
+    margin-top: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+@keyframes backgroundtrans {
+    0%{
+        
+        filter: opacity(0.3);
+        transform: translateY(30%)
+    }
+    100%{
+        
+        transform: translateY(0%)
+    }
+}
+
+@media (min-width:750px) and (max-width:950px) {
+   .poppins-medium{
+    font-size: 13px;
+   }
+   .skilllogoimg{
+    width: 170px;
+    height: 130px;
+   }
+   .opening{
+    width: 240px;
+    margin: 7px;
+   }
+   .share-opening , .subscribe-bell{
+    width: 25px;
+    height: 25px;
+   }
+  }
+
+  @media (min-width:519px) and (max-width:750px) {
+    .poppins-medium{
+        font-size: 13px;
+    
+       }
+       .skilllogoimg{
+        width: 130px;
+        height: 130px;
+       }
+       .opening{
+        margin: 5px;
+        width: 240px;
+       }
+    
+       .share-opening , .subscribe-bell{
+        width: 20px;
+        height: 20px;
+       }
+       .applybtn{
+        padding: 7px 2rem;
+       }
+       .ShimmerThumbNail{
+        width: 240px;
+        height: 300px;
+       }
+  }
+  @media (min-width:520px) and (max-width:535px){
+    .poppins-extrabold{
+        font-size: 25px;
+        padding: 0px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+       }
+  }
+  @media (max-width:519px){
+    .search-btn{
+        padding: 10px 1rem;
+    }
+    .poppins-medium{
+        font-size: 18px;
+    
+       }
+       .skilllogoimg{
+        width: 130px;
+        height: 130px;
+       }
+       .opening{
+        margin: 5px;
+        width: 330px;
+       }
+    
+       .share-opening,.subscribe-bell{
+        width: 20px;
+        height: 20px;
+       }
+       .applybtn{
+        padding: 7px 2rem;
+       }
+       .poppins-extrabold{
+        font-size: 25px;
+        padding: 5px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+       }
+       .skill{
+        padding: 5px;
+       }
+  }
+

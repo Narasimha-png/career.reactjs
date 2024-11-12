@@ -1,0 +1,50 @@
+.application-form{
+    padding: 1rem 7vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.application-form >div{
+    display: flex;
+    flex-direction: column;
+    
+}
+input, select{
+    padding: 10px;
+}
+.add-skill{
+    border: 1px solid lightgrey;
+    padding: 10px;
+    border-radius: 5px;
+}
+.addedskill{
+    width: 60vw;
+    margin-top: 10px;
+}
+.otherlinks{
+    display: flex;
+    gap: 1rem;
+}
+.otherlinks > input {
+    width: 60vw;
+}
+.apply-btn{
+    background-color: #4CFDCB;
+    padding: 10px 0px;
+    margin-bottom: 2vw;
+}
+
+.resume-upload{
+    padding: 7px 17px;
+    font-size: 20px;
+    border: 1px solid lightgray;
+    width: fit-content;
+    cursor: pointer;
+}
+#resume{
+    display: none;
+}
+select{
+    background-color: transparent;
+    border: 1px solid grey;
+}

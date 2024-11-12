@@ -1,0 +1,172 @@
+
+.label{
+    font-family: Arial, Helvetica, sans-serif;  
+    letter-spacing: 0.2px; 
+}
+
+.mainlogo{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+button{
+    background-color: transparent;
+    border: none;
+}
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .poppins-extrabold {
+    font-size: 35px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  .outer-nav{
+    position: sticky;
+    top: 0px;
+  }
+  .opening{
+    cursor: pointer;
+  }
+  .nav-btns{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .bi-chevron-down{
+    padding: 5px;
+  }
+
+  .nav-links{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+  }
+  .inner-nav{
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+  }
+  .outer-nav{
+    background-color: white;
+    padding: 0px 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    box-shadow: 1.5px 1.5px 0px lightgray;
+    
+  }
+  .inner-side-nav{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+  }
+  
+  .bi-brightness-high>div{
+    display: none;
+  }
+  .lang-nav{
+    display: flex;
+    gap: 2vw;
+  }
+  
+  .login-signup{
+    display: flex;
+    gap: 0.6vw;
+    align-items: center;
+  }
+  .log-in, .sign-up{
+    background-color: transparent;
+    border: none;
+    padding: 11px 4rem;
+    border: 1.5px solid black;
+    text-align: center;
+  }
+  
+  
+  .sign-up{
+    background-color: #4CFDCB;
+  }
+
+  .down-hover:hover{
+    border-bottom: 4px solid #4CFDCB ;
+  }
+  .down-hover{
+    height: 73.6px;
+  }
+
+
+  @media (min-width:750px) and (max-width:950px) {
+    .inner-nav{
+      display: flex;
+      gap: 10px;
+    }
+    .log-in, .sign-up{
+      padding: 9px 3rem;
+    }
+    .poppins-semibold{
+      font-size: 13px;
+    }
+    .mainlogo{
+      width: 30px;
+    height: 30px;
+    }
+  }
+
+  @media (max-width:750px) {
+    .nav-links{
+      display: none;
+    }
+    .outer-nav{
+      padding: 10px;
+    }
+    .log-in, .sign-up{
+      padding: 7px 2rem;
+    }
+    .lang-nav{
+      display: none;
+    }
+  }
+
