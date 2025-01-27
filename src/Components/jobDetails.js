@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {hiringlogo} from "../assets/profile.jpg"
 import "../Styles/jobDetails.css" ;
+import { JobCards } from "../CONSTANTS";
+import { useNavigate } from "react-router-dom";
 
 const Active = ()=>(
     <div className="status-tag active">Active</div>
@@ -10,7 +12,9 @@ const Expired = ()=>(
     <div className="status-tag expired">Expired</div>
 )
 
-const Job_Details = ({jobInfo})=>(
+const Job_Details = ({jobInfo})=>{
+    const navigator = useNavigate() ;
+    return(
     <div className="job-details job-text">
         
         <div className="poppins-bold">{jobInfo.name}</div>
@@ -26,12 +30,17 @@ Our flagship product is the Catalog wallet , a unique implementation of a multic
 bitcoin directly on any app. We also help power web3 projects like garden to become cross-chain seamlessly.<br />
 We are a lean and fast moving team of like-minded people and are passionate about making our mark in the DeFi 
 space</div>
-<button className="job-apply-btn details-div">{jobInfo.status ? "Apply" : "Expired"}</button>
+<button onClick={(e)=>{
+                (jobInfo.status ? navigator("/jobdescription/" + jobInfo.id + "/form") : e.preventDefault() ) 
+                window.scrollTo(0,0) ;
+            }}  className="job-apply-btn details-div">{jobInfo.status ? "Apply" : "Expired"}</button>
     </div>
 )
+}
 //name , number_of_openings , status ,skills, work_location, eligibility,compensaion , imp_note , responsibilities
-const Job_Information = ({jobInfo})=>(
-    
+const Job_Information = ({jobInfo})=>{
+    const navigator = useNavigate() ;
+    return(
     <div className="job-information job-text">
         <h2>Skills</h2>
         <div className="skillset"> {jobInfo.skills && JSON.parse(jobInfo.skills).slice(0,4).map((skill, index) => (
@@ -51,17 +60,20 @@ const Job_Information = ({jobInfo})=>(
 
             </ol>
 
-            <button className="job-apply-btn information-div">{jobInfo.status ? "Apply" : "Expired"}</button>
+            <button onClick={(e)=>{
+                (jobInfo.status ? navigator("/jobdescription/" + jobInfo.id + "/form") : e.preventDefault() ) 
+                window.scrollTo(0,0) ;
+            }} className="job-apply-btn information-div">{jobInfo.status ? "Apply" : "Expired"}</button>
     </div>
 
 )
-
+}
 const JobDetails = ()=>{
     const [jobInfo , setJobInfo] = useState(null) ;
     const {id} = useParams() ;
     useEffect(()=>{
         async function fetchDetails() {
-        const data = await fetch("http://localhost:4000/apis/v1/carreer/jobDetails/" + id ) ;
+        const data = await fetch( JobCards + id ) ;
         const jsonData = await (data).json() ;
         console.log(jsonData) ;
         setJobInfo(jsonData) ;

@@ -47,11 +47,12 @@ const Openings = ({opening}) =>(
     </Link>
 )
 
-async function fetchOpenings( setOpenings ){
-    const openingdatata = await fetch("http://localhost:4000/apis/v1/carreer/getallopenings") ;
+async function fetchOpenings( {setOpenings , setFilterOpenings} ){
+    const openingdatata = await fetch("https://career-nodejs-production.up.railway.app/apis/v1/carreer/getallopenings") ;
     const data = await openingdatata.json() ;
     console.log(data) ;
     setOpenings(data);
+    setFilterOpenings(data) ;
     console.log(data[0].SKILLS) ;
    
     return ;
@@ -78,21 +79,16 @@ const Subscribe_div = ()=>(
 const Card_Layout = () => {
     const [searchText,setSearchText] = useState("") ;
     const [openings, setOpenings] = useState([]);
-    const [filterOpenings , setFilterOpenings] = useState(openings) ;
+    const [filterOpenings , setFilterOpenings] = useState([]) ;
     useEffect(() => {
         const loadOpenings = async () => {
-            await fetchOpenings(setOpenings);
+            await fetchOpenings({setOpenings , setFilterOpenings});
         };
         loadOpenings();
     }, []);
+
     
-    useEffect(() => {
-        console.log("Fetching...");
-        setFilterOpenings(openings);
-    }, [openings]);
-    
-    
-     if(openings.length === 0|| filterOpenings.length === 0 )
+     if(openings.length === 0 )
         return (
             <div className="shimmer-div">
             <ShimmerThumbnail  />
@@ -100,7 +96,7 @@ const Card_Layout = () => {
             <ShimmerThumbnail  />
             </div>
     )
-
+   
     return (
         <>
         <div className="search-heading">
@@ -131,9 +127,18 @@ const Card_Layout = () => {
           </div>
         <div className="OpeningLayout">
             {
+
                 filterOpenings.map((opening, index) => (
                     <Openings key={index} opening={opening} />
                 ))
+            }
+            {
+                filterOpenings.length === 0 &&
+                (
+                    <div className="no-results">
+                        <h1>No Results Found</h1>
+                    </div>
+                )
             }
         </div>
         <Subscribe_div />

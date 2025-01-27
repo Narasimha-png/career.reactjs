@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Styles/Form.css" ;
+import { ApplyLink } from "../CONSTANTS";
 
 const LinksDiv = ({link,FormData , setFormData})=> {
     console.log("LINKS") ;
@@ -20,6 +21,7 @@ const LinksDiv = ({link,FormData , setFormData})=> {
 
 const Form = ()=>{
     const [Resume, setResume] = useState("") ;
+    const [FileName , setFileName] = useState("") ;
     const [FormData, setFormData] = useState({
         name:"" ,
         gmail:"" ,
@@ -47,22 +49,20 @@ const Form = ()=>{
         setLinks("") ;
     }
     return(
-        <div className="application-form">
-            <div key={"1"}>
+        <form className="application-form" method="post" encType="multipart/form-data" action={ApplyLink}>
+           
                 <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Ex.Settipalli Narasimha" name="name" required onInput={HandleInput} ></input>
-            </div>
-            <div key={"2"}>
+                <input type="text" id="name" placeholder="Ex.Settipalli Narasimha" name="name"  onInput={HandleInput} ></input>
+          
                 <label for="">Gmail</label>
-                <input type="text" id="gmail" placeholder="Ex.narasimhas9490@gmail.com" name="gmail" required  onInput={HandleInput} ></input>
-            </div>
-            <div key={"3"}>
+                <input type="text" id="gmail" placeholder="Ex.narasimhas9490@gmail.com" name="gmail"   onInput={HandleInput} ></input>
+           
                 <label for="">Phone Number</label>
-                <input type="text" placeholder="Ex.8008130603" name="phonenumber" required  onInput={HandleInput} ></input>
-            </div>
-            <div key={"4"}>
+                <input type="text" placeholder="Ex.8008130603" name="phonenumber"   onInput={HandleInput} ></input>
+          
+          
                 <label for="branch"  >Branch</label>
-                <select id="branch" name="branch" required  onInput={HandleInput} >
+                <select id="branch" name="branch"   onInput={HandleInput} >
                     <option value="" disabled selected >Select Branch</option>
                     <option value={"Computer Science"}>Computer Science</option>
                     <option value={"Electrical Engineering"}>Electrical Engineering</option>
@@ -75,11 +75,11 @@ const Form = ()=>{
                     <option value={"Biotechnology"}>Biotechnology</option>
                 </select>
 
-            </div>
-            <div key={"5"}>
+       
+          
                 <label for="github" >GitHub Profile</label>
-                <input type="text" id="github" placeholder="Ex.github.com/Narasimha-png" name="github" required  onInput={HandleInput} ></input>
-            </div>
+                <input type="text" id="github" placeholder="Ex.github.com/Narasimha-png" name="github"   onInput={HandleInput} ></input>
+         
             <div key={"6"}>
                 <label for="otherlinks">Other Links (Portfolio/Profiles) </label>
                 <div className="otherlinks">
@@ -99,32 +99,18 @@ const Form = ()=>{
                     }
 
                 </div>
-            </div>
-            <div key={"7"}>
+            </div>         
                 <label for="resume" >Resume</label>
                 <label for="resume" className="resume-upload">Upload Resume</label>
-                <input type="file" id="resume" name="resume" onInput={(e)=>{
-                   const file = e.target.files[0];
-                   console.log(e.target.files); 
-                   
-                   if (file) {
-                       const reader = new FileReader(); 
-                       reader.onload = () => {
-                           const binaryData = reader.result; 
-                           console.log("Binary Data:", binaryData);
-                       };        
-                       reader.onerror = (err) => {
-                           console.error("Error reading file:", err);
-                       };         
-                       reader.readAsArrayBuffer(file); 
-                   }
-                }} required></input>
-            </div>
-            <div>{Resume.length != 0 && <p>{Resume.split("\\")[Resume.split("\\").length-1]}</p> }</div>
-            <button onClick={(e)=>{
                 
-            }} className="apply-btn">APPLY 🙌</button>
-        </div>
+                <input type="file" id="resume" name="file" onChange={(e)=>{
+                    setFileName(e.target.files[0].name) ;
+                }}  accept="application/pdf"></input>
+                {
+                    (FileName.length != 0 && <p>{FileName } </p>)
+                }
+            <button type="submit" className="apply-btn">APPLY 🙌</button>
+        </form>
     )
 }
 

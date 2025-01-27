@@ -24,13 +24,15 @@ const router = createBrowserRouter([
             path:"/jobdescription/:id" , 
             element:<JobDetails />
         }
+        ,
+        {
+            path:"jobdescription/:id/form", 
+            element:<Form />
+        }
         
     ]
     }
-    , {
-        path:"/form", 
-        element:<Form />
-    }
+    , 
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root")) ;
